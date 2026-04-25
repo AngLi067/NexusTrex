@@ -23,8 +23,8 @@ conda activate env_isaaclab
 Local self-check result on this machine:
 
 - Active conda env: `env_isaaclab`
-- Python executable: `C:\Users\ROG\.conda\envs\env_isaaclab\python.exe`
-- Python prefix: `C:\Users\ROG\.conda\envs\env_isaaclab`
+- Python executable: `.conda\envs\env_isaaclab\python.exe`
+- Python prefix: `.conda\envs\env_isaaclab`
 
 Quick sanity check:
 
@@ -81,7 +81,7 @@ python scripts/rsl_rl/play.py --task nexustrex-distillation-v0 --agent rsl_rl_di
 python scripts/rsl_rl/play.py \
   --task nexustrex-distillation-v0 \
   --agent rsl_rl_distillation_cfg_entry_point \
-  --checkpoint "D:/ckpt/model.pt" \
+  --checkpoint "ckpt/model.pt" \
   --num_envs 16 \
   --use_lqr \
   --lqr_gain 0.05 \
@@ -102,7 +102,7 @@ Useful LQR options in `play.py`:
 python scripts/rsl_rl/play.py \
   --task nexustrex-cv-d-v0 \
   --agent rsl_rl_distillation_cfg_entry_point \
-  --checkpoint "D:/ckpt/model.pt" \
+  --checkpoint "ckpt/model.pt" \
   --num_envs 16 \
   --log_tracking --log_steps 1000 --log_out cv_out/d.txt \
   --circle
@@ -127,9 +127,9 @@ Generate Teacher / NoScanner / WithScanner / NoScanner+LQR logs in one command:
 
 ```bash
 python scripts/cv_run.py \
-  --teacher "D:/ckpt/teacher.pt" \
-  --d "D:/ckpt/student_ns.pt" \
-  --s "D:/ckpt/student_ws.pt" \
+  --teacher "/ckpt/teacher.pt" \
+  --d "ckpt/student_ns.pt" \
+  --s "ckpt/student_ws.pt" \
   --lqr_d --lqr_adaptive \
   --circle --traj eight --traj_smooth 0.12 \
   --run --out cv_out
